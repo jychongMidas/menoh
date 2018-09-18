@@ -71,6 +71,10 @@ matrix:
                     --install-dir ${HOME}/mkl-dnn-${MKLDNN_VERSION} \
                     --parallel ${MAKE_JOBS}
           script: true # skip build and test
+          after_script:
+              - ls -lR /home/travis/build/pfnet-research/menoh/cov-int
+              - cat /home/travis/build/pfnet-research/menoh/cov-int/build-log.txt
+              - cat /home/travis/build/pfnet-research/menoh/cov-int/scm_log.txt
 
 script:
     - bash -ex ${TRAVIS_BUILD_DIR}/.travis/run-build.sh
