@@ -57,7 +57,7 @@ matrix:
                               -DMKLDNN_INCLUDE_DIR="$HOME/mkl-dnn-${MKLDNN_VERSION}/include"
                               -DMKLDNN_LIBRARY="$HOME/mkl-dnn-${MKLDNN_VERSION}/lib/libmkldnn.so" .
                   build_command: make
-                  branch_pattern: coverity_scan
+                  branch_pattern: .*coverity.*
           before_install:
               - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
           install:
